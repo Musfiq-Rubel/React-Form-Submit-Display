@@ -23,7 +23,7 @@ class App extends Component {
 
     return (
       <div className="App">
-      <Form id="myForm" handleSubmit={this.handleSubmit}/>
+      <Form  handleSubmit={this.handleSubmit}/>
       <Table  userData={this.state.users} /> 
       </div>
     );

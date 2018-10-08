@@ -41,7 +41,7 @@ class Form extends Component {
                 [event.target.name] :event.target.value 
             });
             console.log(event.target.value);
-            //event.preventDefault();
+            
         }
         
         
@@ -51,14 +51,14 @@ class Form extends Component {
     
     
 
-    submitForm = (e) => {
-        e.preventDefault();
-      
+    submitForm = (event) => {
+        event.preventDefault();
+        
         this.props.handleSubmit(this.state);
         this.setState(this.initialState);
        
         console.log(this.state);
-       
+       document.getElementById('myForm').reset();
         
     }
       
@@ -76,7 +76,7 @@ class Form extends Component {
             
     
      <div className="container mx-2 my-5" style={{width:'500px' }}>
-     
+     <form id="myForm">
      <div className="form-group">
      <input 
         type="text"
@@ -138,7 +138,6 @@ class Form extends Component {
         type="radio" 
         name="gender"
         value="male"
-        //checked={this.state.gender === "male"} 
         onChange={this.handleChange}
         /> Male
        
@@ -146,8 +145,7 @@ class Form extends Component {
         type="radio"
         name="gender" 
        value="female" 
-       //checked={this.state.gender === "female"} 
-        onChange={this.handleChange}
+       onChange={this.handleChange}
         
         /> Female
         
@@ -155,7 +153,6 @@ class Form extends Component {
         type="radio" 
         name="gender"
         value="other" 
-        //checked={this.state.gender === "other"} 
         onChange={this.handleChange}
         /> Other
         
@@ -165,7 +162,6 @@ class Form extends Component {
          type="checkbox"
          name="skills"
          value="javascript"
-         //checked={this.state.skills}
          onChange={this.handleChange}
          style={styles} /> Javascript
      <input 
@@ -195,7 +191,7 @@ class Form extends Component {
        onClick={this.submitForm}/>
        
      </div>
-     
+     </form>
      </div>
 
 
